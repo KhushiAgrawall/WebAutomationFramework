@@ -21,6 +21,7 @@ public class ProductSelectionPage extends BasePage {
     private final WebDriverWait wait;
 
     public ProductSelectionPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -32,11 +33,25 @@ public class ProductSelectionPage extends BasePage {
 
     public void selectProductByName(String productName) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[contains(@class, 'product-card') and .//h4[contains(text(),'" + productName + "')]]")));
-        driver.findElement(By.xpath("//div[contains(@class, 'product-card') and .//h4[contains(text(),'" + productName + "')]]")).click();
+        WebElement productElement = driver.findElement(By.xpath("//div[contains(@class, 'product-card') and .//h4[contains(text(),'" + productName + "')]]"));
+
+        if (ProductAvailability.isProductSoldOut(productElement)) {
+            System.out.println("Product '" + productName + "' is sold out. Test will be exited.");
+            return;
+        }
+
+        productElement.click();
     }
 
     public void selectProductByIndex(int index) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[contains(@class, 'product-card')]")));
-        driver.findElements(By.xpath("//div[contains(@class, 'product-card')]")).get(index).click();
+        WebElement productElement = driver.findElements(By.xpath("//div[contains(@class, 'product-card')]")).get(index);
+
+        if (ProductAvailability.isProductSoldOut(productElement)) {
+            System.out.println("Product at index " + index + " is sold out. Test will be exited.");
+            return;
+        }
+
+        productElement.click();
     }
 }
