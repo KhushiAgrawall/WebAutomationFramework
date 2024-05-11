@@ -29,8 +29,7 @@ This project contains an automated testing suite for an e-commerce web applicati
     ```bash
     gradle test
     ```
-
-<<<<<<< HEAD
+    
 ## Features
 
 ### Search Functionality Testing
@@ -56,7 +55,6 @@ This project contains an automated testing suite for an e-commerce web applicati
 
 4. Run the tests using TestNG:
    gradle test
->>>>>>> 18342a8a46b7cd5669cad12119ce1ff203ee0ebe
 
 ### User Registration and Login Testing
 - Automate the process of user registration and login.
