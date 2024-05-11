@@ -44,11 +44,11 @@ public class CartTest {
     @Test
     public void verifyProductInCart(HeaderComponent headerComponents) {
         CartPage cartPage = new CartPage(driver);
-        headerComponents.goToCartPage(); // Assuming method is in HeaderComponents
+        headerComponents.goToCartPage();
         Map<String, String> productDetails = cartPage.getProductDetailsFromCart("product-name-here");
         Assert.assertNotNull(productDetails, "Product not found in cart.");
         Assert.assertEquals(productDetails.get("name"), "product-name-here");
-        // Add further assertions for size, quantity, etc.
+
     }
 @Test
     public void verifyCartTotal(String expectedTotal){
