@@ -4,9 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class BasePage {
-    WebDriver driver= new ChromeDriver();
+    protected WebDriver driver= new ChromeDriver();
 
-    public BasePage(WebDriver driver) {
+    public BasePage(WebDriver driver)
+    {
 
     }
 }

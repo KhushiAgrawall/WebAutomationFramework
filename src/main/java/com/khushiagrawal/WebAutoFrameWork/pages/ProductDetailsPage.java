@@ -1,5 +1,6 @@
 package com.khushiagrawal.WebAutoFrameWork.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,7 @@ public class ProductDetailsPage extends BasePage {
     private final WebDriverWait wait;
 
     public ProductDetailsPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -29,5 +31,10 @@ public class ProductDetailsPage extends BasePage {
 
     public String getProductPrice() {
         return wait.until(ExpectedConditions.visibilityOf(productPrice)).getText();
+    }
+
+    public void addProductToCart() {
+        WebElement addToCartButton = driver.findElement(By.id("add-to-cart-button"));
+        addToCartButton.click();
     }
 }
