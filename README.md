@@ -30,6 +30,7 @@ This project contains an automated testing suite for an e-commerce web applicati
     gradle test
     ```
 
+<<<<<<< HEAD
 ## Features
 
 ### Search Functionality Testing
@@ -43,6 +44,19 @@ This project contains an automated testing suite for an e-commerce web applicati
 ### Contact Page Testing
 - Validate form submission on the Contact page.
 - Test response messages and error handling mechanisms.
+=======
+1. Clone the repository:
+   git clone https:(https://github.com/KhushiAgrawall/WebAutomationFramework.git)
+
+2. Navigate to the project directory:
+   cd ecommerce-web-automation
+
+3. Build the project using Gradle:
+   gradle clean build
+
+4. Run the tests using TestNG:
+   gradle test
+>>>>>>> 18342a8a46b7cd5669cad12119ce1ff203ee0ebe
 
 ### User Registration and Login Testing
 - Automate the process of user registration and login.
