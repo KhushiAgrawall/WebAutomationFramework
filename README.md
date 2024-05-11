@@ -15,7 +15,7 @@ Testing Framework: TestNG
 Setup and Execution
 
 Clone the repository:
-git clone https://github.com/your-username/ecommerce-web-automation.git
+git clone https:[//github.com/your-username/ecommerce-web-automation.git](https://github.com/KhushiAgrawall/WebAutomationFramework.git)
 
 Navigate to the project directory:
 cd ecommerce-web-automation
