@@ -29,6 +29,5 @@ public class CartActions extends BasePage {
     }
 
     public void navigateToCartPage() {
-        cartPage.navigateToCartPage();
+        getHeader().goToCartPage();
     }
-}

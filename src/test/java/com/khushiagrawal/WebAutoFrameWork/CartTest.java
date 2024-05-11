@@ -31,8 +31,15 @@ public class CartTest {
         cartActions.addProductToCart("Product 1", "Medium");
         cartActions.navigateToCartPage();
         List<CartItem> expectedCartItems = Arrays.asList(
-                new CartItem("Product 1", "Medium", "1")
-        );
+                new CartItem("Product 1", "Medium", "1"));
+        cartActions.navigateToCartPage();
+        List<CartItem> actualCartItems = cartPage.getCartItems();
+        Assert.assertEquals(actualCartItems.size(), 1, "Cart should contain one product.");
+        CartItem actualItem = actualCartItems.get(0);
+        Assert.assertEquals(actualItem.getName(), "Product 1", "Product name should match.");
+        Assert.assertEquals(actualItem.getSize(), "Medium", "Product size should match.");
+        Assert.assertEquals(actualItem.getQuantity(), "1", "Product quantity should be 1.");
+
     }
     @Test
     public void verifyProductInCart(HeaderComponent headerComponents) {
@@ -42,5 +49,9 @@ public class CartTest {
         Assert.assertNotNull(productDetails, "Product not found in cart.");
         Assert.assertEquals(productDetails.get("name"), "product-name-here");
         // Add further assertions for size, quantity, etc.
+    }
+@Test
+    public void verifyCartTotal(String expectedTotal){
+        Assert.assertEquals(cartPage.getTotalPrice(), expectedTotal, "The total price should match the expected value.");
     }
 }
