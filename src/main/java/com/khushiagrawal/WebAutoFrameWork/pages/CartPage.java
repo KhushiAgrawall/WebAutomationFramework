@@ -4,12 +4,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CartPage extends BasePage{
-    public WebDriver driver;
+
+   public WebDriver driver;
+    @FindBy(xpath = "//div[@id='cart-item-container']")
+    private List<WebElement> cartItems; // Assume each cart item has all the details as child elements
 
     @FindBy(id = "cart-link")
     private WebElement cartLink;
@@ -17,9 +23,12 @@ public class CartPage extends BasePage{
     @FindBy(id = "cart-table")
     private WebElement cartTable;
 
+    @FindBy(xpath = "//span[@id='total-price']")
+    private WebElement totalPrice;
+
     public CartPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void navigateToCartPage() {
@@ -39,6 +48,19 @@ public class CartPage extends BasePage{
     }
 
     public String getTotalPrice() {
-        return cartTable.findElement(By.cssSelector("tfoot .total")).getText();
+        return totalPrice.getText();
+    }
+    // Method to get a cart item's details by product name
+    public Map<String, String> getProductDetailsFromCart(String productName) {
+        for (WebElement item : cartItems) {
+            if (item.getText().contains(productName)) {
+                Map<String, String> details = new HashMap<>();
+                details.put("name", item.findElement(By.className("cart-item-name")).getText());
+                details.put("quantity", item.findElement(By.className("cart-item-quantity")).getText());
+                // Add other details as needed
+                return details;
+            }
+        }
+        return null; // Or throw exception if product not found
     }
 }

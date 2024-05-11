@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
-    protected WebDriver driver= new ChromeDriver();
+    public WebDriver driver= new ChromeDriver();
 
     public BasePage(WebDriver driver)
     {

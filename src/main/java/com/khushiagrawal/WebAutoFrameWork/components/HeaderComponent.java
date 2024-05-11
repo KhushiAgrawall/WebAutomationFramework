@@ -16,11 +16,13 @@ public class HeaderComponent extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-//    public void clickProductsLink() {
-//        productsLink.click();
-//    }
+
 public void clickProductsLink() {
     WebElement productsLink = driver.findElement(By.id("products-link"));
     productsLink.click();
 }
+    public void goToCartPage() {
+        WebElement cartIcon = driver.findElement(By.id("cart-icon"));
+        cartIcon.click();
+    }
 }
