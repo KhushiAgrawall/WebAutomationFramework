@@ -14,17 +14,17 @@ Testing Framework: TestNG
 
 Setup and Execution
 
-Clone the repository:
-git clone https:[//github.com/your-username/ecommerce-web-automation.git](https://github.com/KhushiAgrawall/WebAutomationFramework.git)
+1. Clone the repository:
+   git clone https:(https://github.com/KhushiAgrawall/WebAutomationFramework.git)
 
-Navigate to the project directory:
-cd ecommerce-web-automation
+2. Navigate to the project directory:
+   cd ecommerce-web-automation
 
-Build the project using Gradle:
-gradle clean build
+3. Build the project using Gradle:
+   gradle clean build
 
-Run the tests using TestNG:
-gradle test
+4. Run the tests using TestNG:
+   gradle test
 
 
 Features
