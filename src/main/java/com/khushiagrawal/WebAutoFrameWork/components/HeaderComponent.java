@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HeaderComponents extends BasePage {
+public class HeaderComponent extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Products')]")
     private WebElement productsLink;
 
-    public HeaderComponents(WebDriver driver) {
+    public HeaderComponent(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }

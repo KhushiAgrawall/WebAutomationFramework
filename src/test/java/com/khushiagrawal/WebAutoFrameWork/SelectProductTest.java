@@ -1,6 +1,6 @@
 package com.khushiagrawal.WebAutoFrameWork;
 
-import com.khushiagrawal.WebAutoFrameWork.components.HeaderComponents;
+import com.khushiagrawal.WebAutoFrameWork.components.HeaderComponent;
 import com.khushiagrawal.WebAutoFrameWork.pages.ProductDetailsPage;
 import com.khushiagrawal.WebAutoFrameWork.pages.ProductSelectionPage;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class SelectProductTest {
     private WebDriver driver;
-    private HeaderComponents headerComponents;
+    private HeaderComponent headerComponents;
     private ProductSelectionPage productSelectionPage;
     private ProductDetailsPage productDetailsPage;
 
@@ -21,7 +21,7 @@ public class SelectProductTest {
         System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
         driver = new ChromeDriver();
         driver.get("http://your-url-here");
-        headerComponents = new HeaderComponents(driver);
+        headerComponents = new HeaderComponent(driver);
         productSelectionPage = new ProductSelectionPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
     }
